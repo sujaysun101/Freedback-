@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: feedbackfix
+      POSTGRES_PASSWORD: feedbackfix
+      POSTGRES_DB: feedbackfix
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U feedbackfix"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    environment:
+      DATABASE_URL: postgresql+psycopg://feedbackfix:feedbackfix@db:5432/feedbackfix
+      OPENAI_API_KEY: "${OPENAI_API_KEY}"
+      SUPABASE_JWT_SECRET: "${SUPABASE_JWT_SECRET}"
+      STRIPE_SECRET_KEY: "${STRIPE_SECRET_KEY}"
+      STRIPE_WEBHOOK_SECRET: "${STRIPE_WEBHOOK_SECRET}"
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../backend:/app
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@feedbackfix.dev
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "5050:80"
+
+volumes:
+  pgdata:
