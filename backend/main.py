@@ -3,7 +3,7 @@ FeedbackFix Backend API
 FastAPI application for translating client feedback into actionable design tasks
 """
 
-from fastapi import FastAPI, HTTPException, Depends, status
+from fastapi import FastAPI, HTTPException, Depends, status, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
@@ -268,15 +268,25 @@ async def create_checkout_session_endpoint(
 
 
 @app.post("/api/stripe/webhook")
-async def stripe_webhook(request: dict):
+async def stripe_webhook(request: Request):
     """Handle Stripe webhook events"""
-    from fastapi import Request
     from services.stripe_service import handle_webhook
     import json
     
-    # In production, you should verify the webhook signature
-    # For now, we'll process the event directly
-    return await handle_webhook(request)
+    # Get raw request body
+    body = await request.body()
+    
+    # Parse JSON
+    try:
+        event_data = json.loads(body)
+    except json.JSONDecodeError:
+        return {"status": "error", "message": "Invalid JSON"}
+    
+    # In production, you should verify the webhook signature here
+    # sig_header = request.headers.get("stripe-signature")
+    # event = stripe.Webhook.construct_event(body, sig_header, STRIPE_WEBHOOK_SECRET)
+    
+    return await handle_webhook(event_data)
 
 
 if __name__ == "__main__":

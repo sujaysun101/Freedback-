@@ -79,7 +79,7 @@ async def create_checkout_session(user_id: str, user_email: str, db: Session) ->
         )
 
 
-async def handle_webhook(request: dict) -> dict:
+async def handle_webhook(event_data: dict) -> dict:
     """
     Handle Stripe webhook events
     
@@ -92,19 +92,23 @@ async def handle_webhook(request: dict) -> dict:
     """
     from database import SessionLocal
     
-    event = request.get("event")
-    event_type = event.get("type") if isinstance(event, dict) else None
+    # Stripe webhook format: {"id": "...", "type": "...", "data": {"object": {...}}}
+    # Or for testing: {"event": {"type": "...", "data": {"object": {...}}}}
+    if "event" in event_data:
+        event = event_data["event"]
+        event_type = event.get("type") if isinstance(event, dict) else None
+        data = event.get("data", {}).get("object", {})
+    else:
+        # Standard Stripe webhook format
+        event_type = event_data.get("type")
+        data = event_data.get("data", {}).get("object", {})
     
     if not event_type:
-        # In production, verify webhook signature here
-        # sig_header = request.headers.get("stripe-signature")
-        # event = stripe.Webhook.construct_event(payload, sig_header, STRIPE_WEBHOOK_SECRET)
-        return {"status": "error", "message": "Invalid webhook event"}
+        return {"status": "error", "message": "Invalid webhook event: missing type"}
     
     db = SessionLocal()
     
     try:
-        data = event.get("data", {}).get("object", {})
         
         if event_type == "checkout.session.completed":
             # New subscription created
