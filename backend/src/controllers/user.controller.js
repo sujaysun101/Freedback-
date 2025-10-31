@@ -1,5 +1,7 @@
-// Mock user storage (replace with database in production)
-// In production, this would import from the database model
+// IMPORTANT: Mock in-memory storage for demonstration purposes only!
+// In production, replace this with actual database operations using Prisma or your preferred ORM.
+// This in-memory storage will lose all data on server restart and won't work in multi-instance deployments.
+// See backend/prisma/schema.prisma for the database schema.
 const users = [];
 
 const userController = {

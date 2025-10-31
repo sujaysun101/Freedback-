@@ -34,6 +34,8 @@ A complete full stack web application template built with modern technologies. T
 - 📱 **Responsive Design** - Works on all devices
 - ⚡ **Fast Development** - Hot reload for frontend and backend
 
+> **Note**: The backend currently uses in-memory storage for demonstration purposes. For production use, implement database persistence using Prisma (schema provided) or your preferred ORM.
+
 ## 📦 Project Structure
 
 ```
