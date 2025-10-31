@@ -1,4 +1,4 @@
-# FeedbackFix Development Roadmap & TODOs
+# Freedback Development Roadmap & TODOs
 
 ## ? Phase 2: Technical Architecture & Setup (COMPLETED)
 

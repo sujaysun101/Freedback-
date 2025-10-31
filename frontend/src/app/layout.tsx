@@ -6,7 +6,7 @@ import '@/styles/globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'FeedbackFix - Turn Vague Feedback into Clear Design Tasks',
+  title: 'Freedback - Turn Vague Feedback into Clear Design Tasks',
   description: 'AI-powered tool that translates messy client feedback into specific, actionable design tasks',
 }
 

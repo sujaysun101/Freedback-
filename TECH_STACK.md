@@ -1,7 +1,7 @@
-# FeedbackFix Technical Stack
+# Freedback Technical Stack
 
 ## Overview
-FeedbackFix is a web application that translates vague client feedback into actionable design tasks using AI.
+Freedback is a web application that translates vague client feedback into actionable design tasks using AI.
 
 ## Technology Stack
 

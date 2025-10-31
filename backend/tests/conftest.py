@@ -12,7 +12,7 @@ from app.database.base import Base
 from app.database.session import get_db
 
 # Test database URL
-TEST_DATABASE_URL = "postgresql+asyncpg://feedbackfix:feedbackfix_dev_password@localhost:5432/feedbackfix_test"
+TEST_DATABASE_URL = "postgresql+asyncpg://freedback:freedback_dev_password@localhost:5432/freedback_test"
 
 # Create test engine
 test_engine = create_async_engine(TEST_DATABASE_URL, echo=False)

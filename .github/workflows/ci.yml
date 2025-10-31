@@ -15,9 +15,9 @@ jobs:
       postgres:
         image: postgres:15-alpine
         env:
-          POSTGRES_USER: feedbackfix
+          POSTGRES_USER: freedback
           POSTGRES_PASSWORD: test_password
-          POSTGRES_DB: feedbackfix_test
+          POSTGRES_DB: freedback_test
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -57,7 +57,7 @@ jobs:
       
       - name: Run tests
         env:
-          DATABASE_URL: postgresql://feedbackfix:test_password@localhost:5432/feedbackfix_test
+          DATABASE_URL: postgresql://freedback:test_password@localhost:5432/freedback_test
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           CLERK_SECRET_KEY: test_key
           STRIPE_SECRET_KEY: test_key
@@ -126,9 +126,9 @@ jobs:
       - name: Build backend image
         run: |
           cd backend
-          docker build -t feedbackfix-backend:test .
+          docker build -t freedback-backend:test .
       
       - name: Build frontend image
         run: |
           cd frontend
-          docker build -f Dockerfile.dev -t feedbackfix-frontend:test .
+          docker build -f Dockerfile.dev -t freedback-frontend:test .

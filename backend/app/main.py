@@ -1,5 +1,5 @@
 """
-FeedbackFix FastAPI Main Application
+Freedback FastAPI Main Application
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -25,7 +25,7 @@ async def lifespan(app: FastAPI):
     Lifespan events for startup and shutdown
     """
     # Startup
-    logger.info("Starting FeedbackFix API...")
+    logger.info("Starting Freedback API...")
     logger.info(f"Environment: {settings.ENV}")
     
     # Create database tables (for development)
@@ -38,13 +38,13 @@ async def lifespan(app: FastAPI):
     yield
     
     # Shutdown
-    logger.info("Shutting down FeedbackFix API...")
+    logger.info("Shutting down Freedback API...")
     await engine.dispose()
 
 
 # Create FastAPI app
 app = FastAPI(
-    title="FeedbackFix API",
+    title="Freedback API",
     description="AI-powered tool to translate vague client feedback into actionable design tasks",
     version="0.1.0",
     lifespan=lifespan,
@@ -83,7 +83,7 @@ async def root():
     Root endpoint
     """
     return {
-        "message": "FeedbackFix API",
+        "message": "Freedback API",
         "version": "0.1.0",
         "docs": "/docs" if settings.ENV == "development" else "disabled"
     }

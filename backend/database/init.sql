@@ -7,6 +7,6 @@
 -- For development, we can source the schema directly
 -- In production, use Alembic migrations
 
-\c feedbackfix_dev;
+\c freedback_dev;
 
 -- The full schema will be applied via schema.sql or Alembic migrations

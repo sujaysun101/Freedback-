@@ -1,2 +1,2 @@
-# FeedbackFix Backend Application
+# Freedback Backend Application
 __version__ = "0.1.0"

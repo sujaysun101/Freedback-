@@ -18,7 +18,7 @@ export default function LandingPage() {
           </h1>
           
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            FeedbackFix uses AI to translate vague client feedback into specific, 
+            Freedback uses AI to translate vague client feedback into specific, 
             actionable design tasks. No more endless revisions or scope creep.
           </p>
           

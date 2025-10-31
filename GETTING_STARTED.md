@@ -1,6 +1,6 @@
-# Getting Started with FeedbackFix Development
+# Getting Started with Freedback Development
 
-This guide will help you set up your local development environment for FeedbackFix.
+This guide will help you set up your local development environment for Freedback.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 git clone <repository-url>
-cd feedbackfix
+cd freedback
 ```
 
 ### 2. Get API Keys
@@ -139,12 +139,12 @@ The database schema will be automatically created when you start the backend (in
 
 To manually apply the schema:
 ```bash
-docker-compose exec db psql -U feedbackfix -d feedbackfix_dev -f /docker-entrypoint-initdb.d/init.sql
+docker-compose exec db psql -U freedback -d freedback_dev -f /docker-entrypoint-initdb.d/init.sql
 ```
 
 Or from your local machine:
 ```bash
-psql postgresql://feedbackfix:feedbackfix_dev_password@localhost:5432/feedbackfix_dev < backend/database/schema.sql
+psql postgresql://freedback:freedback_dev_password@localhost:5432/freedback_dev < backend/database/schema.sql
 ```
 
 ### 7. Verify Everything Works
@@ -160,7 +160,7 @@ Open http://localhost:3000 in your browser. You should see the landing page.
 
 #### Test Database
 ```bash
-docker-compose exec db psql -U feedbackfix -d feedbackfix_dev -c "\dt"
+docker-compose exec db psql -U freedback -d freedback_dev -c "\dt"
 # Should list tables: users, projects, feedback_inputs, generated_tasks, api_usage
 ```
 
@@ -335,7 +335,7 @@ docker-compose down -v
 
 ```bash
 # Access PostgreSQL shell
-docker-compose exec db psql -U feedbackfix -d feedbackfix_dev
+docker-compose exec db psql -U freedback -d freedback_dev
 
 # Common SQL commands
 \dt              # List tables

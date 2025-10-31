@@ -1,5 +1,5 @@
 -- ================================================
--- FeedbackFix Database Schema V1
+-- Freedback Database Schema V1
 -- ================================================
 -- This is the initial schema for the MVP version
 -- ================================================
@@ -103,4 +103,4 @@ CREATE TRIGGER update_projects_updated_at BEFORE UPDATE ON projects
 
 -- Sample user (only for development)
 -- INSERT INTO users (email, clerk_user_id, subscription_status, subscription_plan)
--- VALUES ('demo@feedbackfix.com', 'user_dev_demo', 'active', 'monthly');
+-- VALUES ('demo@freedback.com', 'user_dev_demo', 'active', 'monthly');

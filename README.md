@@ -1,4 +1,4 @@
-# FeedbackFix
+# Freedback
 
 > Turn vague client feedback into clear, actionable design tasks with AI
 
@@ -7,7 +7,7 @@
 
 ## ?? Overview
 
-FeedbackFix is an AI-powered SaaS tool that translates messy, vague client feedback (like "make it pop" or "needs more pizzazz") into specific, actionable design tasks that integrate directly with your workflow.
+Freedback is an AI-powered SaaS tool that translates messy, vague client feedback (like "make it pop" or "needs more pizzazz") into specific, actionable design tasks that integrate directly with your workflow.
 
 **Problem:** Clients say vague things while designers are left guessing what they actually want, leading to endless revision cycles and scope creep.
 
@@ -117,7 +117,7 @@ Copy `.env.example` to `.env` and fill in:
 
 ```bash
 # Database
-DATABASE_URL=postgresql://feedbackfix:feedbackfix_dev_password@localhost:5432/feedbackfix_dev
+DATABASE_URL=postgresql://freedback:freedback_dev_password@localhost:5432/freedback_dev
 
 # OpenAI (REQUIRED)
 OPENAI_API_KEY=sk-your-openai-api-key
@@ -177,13 +177,13 @@ npm run lint
 
 ```bash
 # Access PostgreSQL shell
-docker-compose exec db psql -U feedbackfix -d feedbackfix_dev
+docker-compose exec db psql -U freedback -d freedback_dev
 
 # Apply schema
-docker-compose exec db psql -U feedbackfix -d feedbackfix_dev < backend/database/schema.sql
+docker-compose exec db psql -U freedback -d freedback_dev < backend/database/schema.sql
 
 # Backup database
-docker-compose exec db pg_dump -U feedbackfix feedbackfix_dev > backup.sql
+docker-compose exec db pg_dump -U freedback freedback_dev > backup.sql
 ```
 
 ## ?? Database Schema
@@ -340,7 +340,7 @@ Proprietary - All rights reserved
 
 ## ?? Support
 
-For issues or questions, contact: support@feedbackfix.com
+For issues or questions, contact: support@freedback.com
 
 ---
 

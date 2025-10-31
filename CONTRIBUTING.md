@@ -1,6 +1,6 @@
-# Contributing to FeedbackFix
+# Contributing to Freedback
 
-Thank you for your interest in contributing to FeedbackFix! This document provides guidelines for contributing to the project.
+Thank you for your interest in contributing to Freedback! This document provides guidelines for contributing to the project.
 
 ## Code of Conduct
 
@@ -323,7 +323,7 @@ Update documentation when:
 **DO NOT** create public GitHub issues for security vulnerabilities.
 
 Instead:
-1. Email: security@feedbackfix.com
+1. Email: security@freedback.com
 2. Describe the vulnerability
 3. Provide steps to reproduce
 4. Suggest a fix (if known)
@@ -358,4 +358,4 @@ By contributing, you agree that your contributions will be licensed under the sa
 
 ---
 
-Thank you for contributing to FeedbackFix! Together, we're saving designers from "make it pop" hell! ??
+Thank you for contributing to Freedback! Together, we're saving designers from "make it pop" hell! ??

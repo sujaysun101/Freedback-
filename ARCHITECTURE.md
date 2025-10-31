@@ -1,8 +1,8 @@
-# FeedbackFix System Architecture
+# Freedback System Architecture
 
 ## Overview
 
-FeedbackFix is a full-stack web application that uses AI to translate vague client feedback into actionable design tasks. This document describes the technical architecture, design decisions, and system components.
+Freedback is a full-stack web application that uses AI to translate vague client feedback into actionable design tasks. This document describes the technical architecture, design decisions, and system components.
 
 ## System Architecture Diagram
 
@@ -446,4 +446,4 @@ This architecture is designed for:
 - **Scalability**: Can grow to 100k+ users with minimal changes
 - **Maintainability**: Clear separation of concerns, typed languages
 
-The key architectural decision is using Python/FastAPI for the backend specifically because of its superior AI/ML ecosystem, which is the core value proposition of FeedbackFix.
+The key architectural decision is using Python/FastAPI for the backend specifically because of its superior AI/ML ecosystem, which is the core value proposition of Freedback.
